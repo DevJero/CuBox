@@ -12,13 +12,16 @@ include("../include/nosession.php");
 
 <body id="music">
 
-<div id="navigationbar">
-    <ul id="list-nav">        
-    	<li id="navmusic"><a href="music.php">Music</a></li>
-    	<li id="navhome"><a href="home.php">Home</a></li>
-    	<li id="navcontrol"><a href="control.php">Control</a></li>
-    </ul>
-</div>
+<nav>
+	<ul class="cf">
+		<li><a class="dropdown" href="#">MUSIC</a>
+			<ul>
+				<li><a href="home.php">HOME</a></li>
+    			<li><a href="control.php">CONTROL</a></li>
+			</ul>	
+		</li>
+	</ul>
+</nav>
 
 </body>
 

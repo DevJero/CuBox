@@ -9,11 +9,11 @@
 
     if ($_SERVER['REQUEST_METHOD'] != "POST")
         {
-            echo "<div id=navigationbar>";
-            echo "<ul id=list-nav>";
-            echo "<li id=navlogin><a>CuBoard</a></li>";
+            echo "<nav>";
+            echo "<ul>";
+            echo "<li><a>CuBoard</a></li>";
             echo "</ul>";
-            echo "</div>";
+            echo "</nav>";
             echo "<div class=box align=center>";
             echo "<h2>Registrierung</h2>";
             echo "<form action='$_SERVER[PHP_SELF]' method='post'>";
@@ -45,11 +45,11 @@
 
             if($password != $password2 OR $username == "" OR $password == "") 
                 { 
-                    echo "<div id=navigationbar>";
-                    echo "<ul id=list-nav>";
-                    echo "<li id=navlogin><a>CuBoard</a></li>";
+                    echo "<nav>";
+                    echo "<ul>";
+                    echo "<li><a>CuBoard</a></li>";
                     echo "</ul>";
-                    echo "</div>";
+                    echo "</nav>";
                     echo "<div class=box align=center>";
                     echo "Eingabefehler. <br>Bitte alle Felder korrekt ausf&uuml;llen. <br><a href=\"signup.php\">Zur&uuml;ck</a>";
                     echo "</div>";
@@ -69,22 +69,22 @@
 
                 if($eintragen == true) 
                     { 
-                        echo "<div id=navigationbar>";
-                        echo "<ul id=list-nav>";
-                        echo "<li id=navlogin><a>CuBoard</a></li>";
+                        echo "<nav>";
+                        echo "<ul>";
+                        echo "<li><a>CuBoard</a></li>";
                         echo "</ul>";
-                        echo "</div>";
+                        echo "</nav>";
                         echo "<div class=box align=center>";
                         echo "Benutzername <b>$username</b> wurde erstellt. <br><a href=\"login.php\">Login</a>"; 
                         echo "</div>";                          
                     } 
                 else 
                     { 
-                        echo "<div id=navigationbar>";
-                        echo "<ul id=list-nav>";
-                        echo "<li id=navlogin><a>CuBoard</a></li>";
+                        echo "<nav>";
+                        echo "<ul>";
+                        echo "<li><a>CuBoard</a></li>";
                         echo "</ul>";
-                        echo "</div>";
+                        echo "</nav>";
                         echo "<div class=box align=center>";
                         echo "Fehler beim Erstellen des Benutzernames. <br><a href=\"signup.php\">Zur&uuml;ck</a>";  
                         echo "</div>";                         
@@ -95,11 +95,11 @@
 
             else 
                 { 
-                    echo "<div id=navigationbar>";
-                    echo "<ul id=list-nav>";
-                    echo "<li id=navlogin><a>CuBoard</a></li>";
+                    echo "<nav>";
+                    echo "<ul>";
+                    echo "<li><a>CuBoard</a></li>";
                     echo "</ul>";
-                    echo "</div>";
+                    echo "</nav>";
                     echo "<div class=box align=center>";
                     echo "Benutzername bereits vorhanden. <br><a href=\"signup.php\">Zur&uuml;ck</a>";  
                     echo "</div>";                     

@@ -12,11 +12,11 @@ require("../include/checkmlogin.php");
 
 	if ($_SERVER['REQUEST_METHOD'] != "POST")
         {
-            echo "<div id=navigationbar>";
-            echo "<ul id=list-nav>";
-            echo "<li id=navlogin><a>CuBoard</a></li>";
+            echo "<nav>";
+            echo "<ul>";
+            echo "<li><a>CuBoard</a></li>";
             echo "</ul>";
-            echo "</div>";
+            echo "</nav>";
             echo "<div class=box align=center>";
             echo "<h2>Login</h2>";
             echo "<form action='$_SERVER[PHP_SELF]' method='post'>";
@@ -49,11 +49,11 @@ require("../include/checkmlogin.php");
 
             if ($username == "" OR $password == "") 
             {
-                echo "<div id=navigationbar>";
-                echo "<ul id=list-nav>";
-                echo "<li id=navlogin><a>CuBoard</a></li>";
+                echo "<nav>";
+                echo "<ul>";
+                echo "<li><a>CuBoard</a></li>";
                 echo "</ul>";
-                echo "</div>";
+                echo "</nav>";
                 echo "<div class=box align=center>";
                 echo "Eingabefehler. <br>Bitte Benutzername und Passwort korrekt ausf&uuml;llen. <br><a href=\"login.php\">Zur&uuml;ck</a>";
                 echo "</div>";
@@ -67,11 +67,11 @@ require("../include/checkmlogin.php");
 
 			else 
     		{
-                echo "<div id=navigationbar>";
-                echo "<ul id=list-nav>";
-                echo "<li id=navlogin><a>CuBoard</a></li>";
+                echo "<nav>";
+                echo "<ul>";
+                echo "<li><a>CuBoard</a></li>";
                 echo "</ul>";
-                echo "</div>";
+                echo "</nav>";
                 echo "<div class=box align=center>";
                 echo "Benutzername und/oder Passwort falsch. <br><a href=\"login.php\">Zur&uuml;ck</a>"; 
                 echo "</div>";      		        
