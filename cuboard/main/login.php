@@ -14,7 +14,7 @@ require("../include/checkmlogin.php");
         {
             echo "<nav>";
             echo "<ul>";
-            echo "<li><a>CuBoard</a></li>";
+            echo "<li><a>CUBOARD</a></li>";
             echo "</ul>";
             echo "</nav>";
             echo "<div class=box align=center>";
@@ -29,7 +29,7 @@ require("../include/checkmlogin.php");
             echo "Noch kein User?<br>";
             echo "<p><a href='signup.php'>Registriere dich hier</a></p><br>";
 
-            echo "<input type=submit value='Abschicken'><br>";
+            echo "<input id=buttonfont style=padding-left:6px; type=submit value='Abschicken'><br>";
             echo "</form>";
             echo "</div>";
         }
@@ -51,7 +51,7 @@ require("../include/checkmlogin.php");
             {
                 echo "<nav>";
                 echo "<ul>";
-                echo "<li><a>CuBoard</a></li>";
+                echo "<li><a>CUBOARD</a></li>";
                 echo "</ul>";
                 echo "</nav>";
                 echo "<div class=box align=center>";
@@ -69,7 +69,7 @@ require("../include/checkmlogin.php");
     		{
                 echo "<nav>";
                 echo "<ul>";
-                echo "<li><a>CuBoard</a></li>";
+                echo "<li><a>CUBOARD</a></li>";
                 echo "</ul>";
                 echo "</nav>";
                 echo "<div class=box align=center>";

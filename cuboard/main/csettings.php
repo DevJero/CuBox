@@ -163,7 +163,7 @@ include("../include/nosession.php");
 
   echo "<div class=box>";
   echo "<form action='$_SERVER[PHP_SELF]' method=POST >";
-  echo "<div class=logout><input type=submit name='logout' value='Logout' ></div>"; 
+  echo "<div class=logout><input id=buttonfont type=submit name='logout' value='Logout' ></div>"; 
   echo "<h2>Control Settings</h2>";
   echo "<h3>Einstellungen</h3>";
 
@@ -185,21 +185,21 @@ include("../include/nosession.php");
         echo "<td style=width:350px;>$funktion</td>";
         if ($funktion="Push-Benachrichtigungen")
         {
-          echo "<td><input type=text style=width:180px; name='apikey' placeholder='$apikey'></td>";
+          echo "<td><input id=buttonfont type=text style=width:180px; name='apikey' placeholder='$apikey'></td>";
         }
         if ($status == 1)
         { 
-          echo "<td><Button class=an onclick=updatebutton('$row->sid','$status','$funktion','0') >an</Button></td>";
+          echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->sid','$status','$funktion','0') >an</Button></td>";
         }
         else
         {
-          echo "<td><Button onclick=updatebutton('$row->sid','$status','$funktion','0') >aus</Button></td>";
+          echo "<td><Button id=buttonfont onclick=updatebutton('$row->sid','$status','$funktion','0') >aus</Button></td>";
         }        
         echo "</tr>";    
         echo "</table>";
   }
   echo "<table>";
-  echo "<tr><input style=width:550px; type=submit name='uptsettings' value='Aktualisieren'></tr>";
+  echo "<tr><input id=buttonfont style=width:550px; type=submit name='uptsettings' value='Aktualisieren'></tr>";
   echo "</table>";
   echo "</form>";
   echo "</div>";
@@ -216,13 +216,13 @@ include("../include/nosession.php");
                 echo "<colgroup width=110></colgroup>";
                 echo "<tr>";
                 echo "<td>
-                      <input type=text style=width:140px; name='bezeichnung' placeholder='Bezeichnung'>
+                      <input id=buttonfont type=text style=width:140px; name='bezeichnung' placeholder='Bezeichnung'>
                       </td>";
                 echo "<td>
-                      <input type=text style=width:120px; name='code' placeholder='Code z.B. 100102'>
+                      <input id=buttonfont type=text style=width:120px; name='code' placeholder='Code z.B. 100102'>
                       </td>";     
                 echo "<td>
-                      <select style=width:120px; name='room'>";
+                      <select id=buttonfont style=width:120px; name='room'>";
                       while ($row = mysqli_fetch_object($resultroom))
                       {
                         echo "<option value=$row->rid>$row->room</option>";
@@ -230,7 +230,7 @@ include("../include/nosession.php");
                 echo "</select>
                       </td>";                    
                 echo "<td style=padding-top:35px;>
-                      <input style=margin-top:-30px; type=submit name='objeintragen' value='Eintragen'>
+                      <input id=buttonfont style=margin-top:-30px; type=submit name='objeintragen' value='Eintragen'>
                       </td>";
                 echo "</table>";
 
@@ -261,7 +261,7 @@ include("../include/nosession.php");
                 //      }  
                 //echo "</select>";                
                 //echo "</td>";  
-                echo "<td><Button class=loeschen onclick=deletebutton('$idzw','0') >L&ouml;schen</Button></td>";    
+                echo "<td><Button id=buttonfont class=loeschen onclick=deletebutton('$idzw','0') >L&ouml;schen</Button></td>";    
                 echo "</tr>";        
                 echo "</table>";
                 echo "</li>";                
@@ -283,10 +283,10 @@ include("../include/nosession.php");
               echo "<colgroup width=110></colgroup>";
               echo "<tr>";   
               echo "<td>";
-              echo "<input type=text style=width:420px; name='newroom' placeholder='Raum'>";
+              echo "<input id=buttonfont type=text style=width:420px; name='newroom' placeholder='Raum'>";
               echo "</td>";                    
               echo "<td style=padding-top:35px;>";
-              echo "<input style=margin-top:-30px; type=submit name='roomeintragen' value='Eintragen'>";
+              echo "<input id=buttonfont style=margin-top:-30px; type=submit name='roomeintragen' value='Eintragen'>";
               echo "</td>";
               echo "</table>";
 
@@ -302,7 +302,7 @@ include("../include/nosession.php");
                   echo "<colgroup width=110></colgroup>";
                   echo "<tr>";
                   echo "<td>$row->room</td>";
-                  echo "<td><Button class=loeschen onclick=deletebutton('$idzw','1') >L&ouml;schen</Button></td>";    
+                  echo "<td><Button id=buttonfont class=loeschen onclick=deletebutton('$idzw','1') >L&ouml;schen</Button></td>";    
                   echo "</tr>";        
                   echo "</table>";
                   echo "</li>";   
@@ -330,33 +330,18 @@ include("../include/nosession.php");
 
                 if ($bezeichnung == "") 
                 {
-                  echo "<div id=navigationbar>";
-                  echo "<ul id=list-nav>";
-                  echo "<li id=navlogin><a>CuBoard</a></li>";
-                  echo "</ul>";
-                  echo "</div>";
                   echo "<div class=box align=center>";
                   echo "Es wurde keine <b>Bezeichnung</b> angegeben. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }                
                 elseif ($codelen != 6) 
                 {
-                  echo "<div id=navigationbar>";
-                  echo "<ul id=list-nav>";
-                  echo "<li id=navlogin><a>CuBoard</a></li>";
-                  echo "</ul>";
-                  echo "</div>";
                   echo "<div class=box align=center>";
                   echo "Fehler in der L&auml;nge des <b>Codes</b>. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }
                 elseif (mysqli_num_rows($codevorhanden) == 1) 
                 {
-                  echo "<div id=navigationbar>";
-                  echo "<ul id=list-nav>";
-                  echo "<li id=navlogin><a>CuBoard</a></li>";
-                  echo "</ul>";
-                  echo "</div>";
                   echo "<div class=box align=center>";
                   echo "Der eingegebene Code <b>$code</b> ist bereits vorhanden. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
@@ -364,11 +349,6 @@ include("../include/nosession.php");
 
                 elseif ($room == "") 
                 {
-                  echo "<div id=navigationbar>";
-                  echo "<ul id=list-nav>";
-                  echo "<li id=navlogin><a>CuBoard</a></li>";
-                  echo "</ul>";
-                  echo "</div>";
                   echo "<div class=box align=center>";
                   echo "Bitte f&uuml;gen Sie zuerst einen <b>Raum</b> hinzu. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
@@ -381,27 +361,15 @@ include("../include/nosession.php");
 
                 if($eintragen == true) 
                     { 
-                        echo "<div id=navigationbar>";
-                        echo "<ul id=list-nav>";
-                        echo "<li id=navlogin><a>CuBoard</a></li>";
-                        echo "</ul>";
-                        echo "</div>";
                         echo "<div class=box align=center>";
                         echo "<b>$bezeichnung</b> mit dem Code <b>$code</b> wurde eingetragen. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
-                        echo "</div>";
-                                                  
+                        echo "</div>";                                                  
                     } 
                 else 
                     { 
-                        echo "<div id=navigationbar>";
-                        echo "<ul id=list-nav>";
-                        echo "<li id=navlogin><a>CuBoard</a></li>";
-                        echo "</ul>";
-                        echo "</div>";
                         echo "<div class=box align=center>";
                         echo "Fehler beim Eintragen von <b>$bezeichnung</b>. <br><a href=\"csettings.php\">Zur&uuml;ck</a>";  
-                        echo "</div>";
-                                                
+                        echo "</div>";                                                
                     } 
                 }
               }
@@ -414,22 +382,12 @@ include("../include/nosession.php");
                 $roomvorhanden = mysqli_query($con,"SELECT room FROM room WHERE room='$newroom'"); 
                 if ($newroom == "") 
                 {
-                  echo "<div id=navigationbar>";
-                  echo "<ul id=list-nav>";
-                  echo "<li id=navlogin><a>CuBoard</a></li>";
-                  echo "</ul>";
-                  echo "</div>";
                   echo "<div class=box align=center>";
                   echo "Es wurde kein <b>Raum</b> angegeben. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }
                 elseif (mysqli_num_rows($roomvorhanden) == 1) 
                 {
-                  echo "<div id=navigationbar>";
-                  echo "<ul id=list-nav>";
-                  echo "<li id=navlogin><a>CuBoard</a></li>";
-                  echo "</ul>";
-                  echo "</div>";
                   echo "<div class=box align=center>";
                   echo "Der Raum <b>$newroom</b> ist bereits vorhanden. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
@@ -441,27 +399,15 @@ include("../include/nosession.php");
 
                 if($eintragen == true) 
                     { 
-                        echo "<div id=navigationbar>";
-                        echo "<ul id=list-nav>";
-                        echo "<li id=navlogin><a>CuBoard</a></li>";
-                        echo "</ul>";
-                        echo "</div>";
                         echo "<div class=box align=center>";
                         echo "<b>$newroom</b> wurde eingetragen. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
-                        echo "</div>";
-                                                  
+                        echo "</div>";                                                  
                     }
                 else 
                     { 
-                        echo "<div id=navigationbar>";
-                        echo "<ul id=list-nav>";
-                        echo "<li id=navlogin><a>CuBoard</a></li>";
-                        echo "</ul>";
-                        echo "</div>";
                         echo "<div class=box align=center>";
                         echo "Fehler beim Eintragen von <b>$newroom</b>. <br><a href=\"csettings.php\">Zur&uuml;ck</a>";  
-                        echo "</div>";
-                                                
+                        echo "</div>";                                                
                     } 
                 }
               } 
@@ -477,27 +423,15 @@ include("../include/nosession.php");
 
                 if($eintragen == true) 
                     { 
-                        echo "<div id=navigationbar>";
-                        echo "<ul id=list-nav>";
-                        echo "<li id=navlogin><a>CuBoard</a></li>";
-                        echo "</ul>";
-                        echo "</div>";
                         echo "<div class=box align=center>";
                         echo "Einstellungen wurden aktualisiert. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
-                        echo "</div>";
-                                                  
+                        echo "</div>";                                                  
                     }
                 else 
                     { 
-                        echo "<div id=navigationbar>";
-                        echo "<ul id=list-nav>";
-                        echo "<li id=navlogin><a>CuBoard</a></li>";
-                        echo "</ul>";
-                        echo "</div>";
                         echo "<div class=box align=center>";
                         echo "Fehler bei Aktualisierung der Einstellungen. <br><a href=\"csettings.php\">Zur&uuml;ck</a>";  
-                        echo "</div>";
-                                                
+                        echo "</div>";                                                
                     } 
               }
 
@@ -514,11 +448,6 @@ include("../include/nosession.php");
                 $delid = $_POST['delid'];
                 $name = $_POST['name'];
                   
-                  echo "<div id=navigationbar>";
-                  echo "<ul id=list-nav>";
-                  echo "<li id=navlogin><a>CuBoard</a></li>";
-                  echo "</ul>";
-                  echo "</div>";
                   echo "<div class=box align=center>";
                   echo "Soll <b>$name</b> wirklich gel&ouml;scht werden? <br><br>";
                   echo "<form action='$_SERVER[PHP_SELF]' method=POST name='delete'>"; 
@@ -526,8 +455,7 @@ include("../include/nosession.php");
                   echo "<input type=submit value='Nein'><br>";
                   echo "<input type=hidden value='$delid' name='delidja'>";
                   echo "</form>";  
-                  echo "</div>";                
-
+                  echo "</div>";  
               }
               elseif (isset($_POST['ja'])) 
               {

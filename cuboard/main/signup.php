@@ -11,7 +11,7 @@
         {
             echo "<nav>";
             echo "<ul>";
-            echo "<li><a>CuBoard</a></li>";
+            echo "<li><a>CUBOARD</a></li>";
             echo "</ul>";
             echo "</nav>";
             echo "<div class=box align=center>";
@@ -26,8 +26,8 @@
             echo "Passwort wiederholen:<br>";
             echo "<input type=password size=24 maxlength=50 name='password2'><br><br>";
 
-            echo "<input style=float:left type=submit value='Login' name='Login'>";
-            echo "<input type=submit value='Abschicken'><br>";
+            echo "<input id=buttonfont style=float:left type=submit value='Login' name='Login'>";
+            echo "<input id=buttonfont style=padding-left:6px; type=submit value='Abschicken'><br>";
             echo "</form>";
             echo "</div>";
         }
@@ -47,7 +47,7 @@
                 { 
                     echo "<nav>";
                     echo "<ul>";
-                    echo "<li><a>CuBoard</a></li>";
+                    echo "<li><a>CUBOARD</a></li>";
                     echo "</ul>";
                     echo "</nav>";
                     echo "<div class=box align=center>";
@@ -71,7 +71,7 @@
                     { 
                         echo "<nav>";
                         echo "<ul>";
-                        echo "<li><a>CuBoard</a></li>";
+                        echo "<li><a>CUBOARD</a></li>";
                         echo "</ul>";
                         echo "</nav>";
                         echo "<div class=box align=center>";
@@ -82,7 +82,7 @@
                     { 
                         echo "<nav>";
                         echo "<ul>";
-                        echo "<li><a>CuBoard</a></li>";
+                        echo "<li><a>CUBOARD</a></li>";
                         echo "</ul>";
                         echo "</nav>";
                         echo "<div class=box align=center>";
@@ -97,7 +97,7 @@
                 { 
                     echo "<nav>";
                     echo "<ul>";
-                    echo "<li><a>CuBoard</a></li>";
+                    echo "<li><a>CUBOARD</a></li>";
                     echo "</ul>";
                     echo "</nav>";
                     echo "<div class=box align=center>";

@@ -31,6 +31,7 @@ include("../include/nosession.php");
 	require("../include/mysqlcon.php");
 	
 	$resultroom = mysqli_query($con,"SELECT * FROM room ORDER BY rid");
+	$settingsquery = mysqli_query($con,"SELECT * FROM settings");
 	
 	while ($row = mysqli_fetch_object($resultroom))
     {
@@ -38,7 +39,7 @@ include("../include/nosession.php");
 		echo "<div class=box>";
 		echo "<div class=temp><p>0&deg;C</p></div>"; 
 		echo "<h2>$row->room</h2>";
-		echo "<h3>Schalterart</h3>";
+		echo "<h3>Ger&auml;testatus</h3>";
 		$result = mysqli_query($con,"SELECT * FROM control LEFT JOIN room ON control.rid=room.rid ORDER BY control.pos");
 		while ($row = mysqli_fetch_object($result))
         {
@@ -58,6 +59,24 @@ include("../include/nosession.php");
  				echo "</tr>";    
  				echo "</table>";
  			}           
+        }
+        while ($row = mysqli_fetch_object($settingsquery))
+        {
+        	echo "<h2>Controlsettings</h2>";
+			echo "<h3>Aktuelle Einstellungen</h3>";
+            echo "<table>";
+            echo "<tr>";
+			echo "<td>$row->funktion</td>";
+			if ($row->status ==1)
+			{	
+				echo "<td><div id=homeview class=an>an</div></td>";
+			}
+ 			else
+ 			{
+ 				echo "<td><div id=homeview>aus</div></td>";
+ 			}
+ 			echo "</tr>";    
+ 			echo "</table>"; 			           
         }
         mysqli_free_result($result); 					
 		echo "</div>";

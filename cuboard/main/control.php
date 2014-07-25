@@ -52,9 +52,9 @@ include("../include/nosession.php");
   <ul class="cf">
     <li><a class="dropdown" href="#">CONTROL</a>
       <ul>
-        <li><a href="home.php">HOME</a></li>
-        <li><a href="music.php">MUSIC</a></li>
         <li><a href="csettings.php">SETTINGS</a></li>
+        <li><a href="home.php">HOME</a></li>
+        <li><a href="music.php">MUSIC</a></li>        
       </ul> 
     </li>
   </ul>
@@ -84,11 +84,11 @@ include("../include/nosession.php");
 				echo "<td>$row->name</td>";
 				if ($row->status ==1)
 				{	
-					echo "<td><Button class=an onclick=updatebutton('$row->cid','$row->status','$row->code','$rid') >an</Button></td>";
+					echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->cid','$row->status','$row->code','$rid') >an</Button></td>";
 				}
  				else
  				{
- 					echo "<td><Button onclick=updatebutton('$row->cid','$row->status','$row->code','$rid') >aus</Button></td>";
+ 					echo "<td><Button id=buttonfont onclick=updatebutton('$row->cid','$row->status','$row->code','$rid') >aus</Button></td>";
  				}
  				echo "</tr>";    
  				echo "</table>";
