@@ -10,11 +10,11 @@
 
 	if ($_SERVER['REQUEST_METHOD'] != "POST")
         {
-            echo "<div id=navigationbar>";
-            echo "<ul id=list-nav>";
-            echo "<li id=navlogin><a>CuBoard</a></li>";
+            echo "<nav>";
+            echo "<ul>";
+            echo "<li><a>CUBOARD</a></li>";
             echo "</ul>";
-            echo "</div>";
+            echo "</nav>";
             echo "<div class=box align=center>";
             echo "<h2>Login</h2>";
             echo "<form action='$_SERVER[PHP_SELF]' method='post'>";
@@ -44,11 +44,11 @@
 
             if ($username == "" OR $password == "") 
             {
-                echo "<div id=navigationbar>";
-                echo "<ul id=list-nav>";
-                echo "<li id=navlogin><a>CuBoard</a></li>";
+                echo "<nav>";
+                echo "<ul>";
+                echo "<li><a>CUBOARD</a></li>";
                 echo "</ul>";
-                echo "</div>";
+                echo "</nav>";
                 echo "<div class=box align=center>";
                 echo "Eingabefehler. <br>Bitte Benutzername und Passwort korrekt ausf&uuml;llen. <br><a href=\"mlogin.php\">Zur&uuml;ck</a>";
                 echo "</div>";
@@ -62,11 +62,11 @@
 
 			else 
     		{
-                echo "<div id=navigationbar>";
-                echo "<ul id=list-nav>";
-                echo "<li id=navlogin><a>CuBoard</a></li>";
+                echo "<nav>";
+                echo "<ul>";
+                echo "<li><a>CUBOARD</a></li>";
                 echo "</ul>";
-                echo "</div>";
+                echo "</nav>";
                 echo "<div class=box align=center>";
                 echo "Benutzername und/oder Passwort falsch. <br><a href=\"mlogin.php\">Zur&uuml;ck</a>"; 
                 echo "</div>";      		        

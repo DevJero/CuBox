@@ -3,6 +3,7 @@
       padding: 0;
     }
     body {
+      font-family: "Century Gothic" !important;
       background: white;
     }
 
@@ -14,114 +15,174 @@
       border-bottom: 1px;
     }
 
-    #navigationbar { 
-      top: 0px; 
-      left: 0px; 
-      width:100%;
-      height: 80px;
-      background-color: #2C3E50; 
+    nav ul {
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-shadow:0 1px 0 #FFF;
+    background: #ddd;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     }
 
-    ul#list-nav {
-      text-align: center; 
-      font-size: 25pt;
+    nav li {
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    min-width: 25%;
     }
 
-    ul#list-nav li {
-      display:inline;
+    nav a {
+    background: #ddd;
+    color: #444;
+    display: block;
+    font-family: "Century Gothic";
+    font-size: 20pt;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: all .25s ease;
+       -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+         -o-transition: all .25s ease;
+            transition: all .25s ease;
+    } 
+
+    nav li:hover a {
+    background: #ccc;
     }
 
-    ul#list-nav li a {
-      font-family: "Century Gothic";
-      text-decoration: none;
-      color: white;
-      font-size: 82pt;
-      font-weight: 400;
-      text-transform: uppercase;
-      padding: 50px 30px 13px 30px;
+    nav li ul {
+    float: left;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 35px;
+    visibility: hidden;
+    z-index: 1;
+    -webkit-transition: all .25s ease;
+       -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+         -o-transition: all .25s ease;
+            transition: all .25s ease;
     }
+
+    nav li:hover ul {
+    opacity: 1;
+    top: 50px;
+    visibility: visible;
+    }
+
+    nav li ul li {
+    float: none;
+    width: 100%;
+    }
+
+    nav li ul a:hover {
+    background: #bbb;
+    }
+
+    .dropdown {
+    position: center;
+    }
+
+    .cf:after, .cf:before {
+    content:"";
+    display:table;
+    }
+
+    .cf:after {
+    clear:both;
+    }
+
+    .cf {
+    zoom:1;
+    }   ​
 
     #home #navhome,
     #control #navcontrol,
     #music #navmusic,
-    #settings #navsettings {
+    #settings #navsettings,
+    #navlogin {
       background:#1ABC9C;
       color: white;
       padding: 100% 0px 13px 0px;
     }
 
-    #navlogin {
-      background:#1ABC9C;
-      color: white;
-      padding: 100% 207px 13px 207px;
-    }
-
     input[type=submit] {
       display: block;
-      width: 850px;
-      padding:40px;
+      width: 85px;
+      padding: 10px;
       color: #999;
       text-decoration: none;
       background: #f0f0f0;
       text-align: center;
       vertical-align: middle;
-      font-size: 60pt;
+      font-size: 10pt;
       border-width: 0;
-      margin: 0 auto;
+      float: right;
       cursor: pointer;
+
+      -o-transition:.5s;
+      -ms-transition:.5s;
+      -moz-transition:.5s;
+      -webkit-transition:.5s;
+      -transition:.5s;
     }
 
     input[type=submit]:hover {
       background: #f6f6f6;
     }
-
-    input[type=text] {
-      font-size: 50pt;
-    }
-
-    input[type=password] {
-      font-size: 50pt;
+    input[type=submit].settings {
+      width: 500px;
     }
 
     button {
       display: block;
-      width: 850px;
-      padding:40px;
+      width: 85px;
+      padding: 10px;
       color: #999;
       text-decoration: none;
       background: #f0f0f0;
       text-align: center;
       vertical-align: middle;
-      font-size: 50pt;
+      font-size: 10pt;
       border-width: 0;
-      margin: 0 auto;
+      float: right;
       cursor: pointer;
+
+      -o-transition:.5s;
+      -ms-transition:.5s;
+      -moz-transition:.5s;
+      -webkit-transition:.5s;
+      -transition:.5s;
     }
-    button:hover {
-      background: #DCFCF3;
+    button:hover {      
+      background: #C9FFF0;
     }
     button.loeschen:hover {
       background: #FFA4A4;
     }
     button.an {
-      background: #DCFCF3;
+      background: #C9FFF0;
+    }
+    button.an:hover {
+      background: #f0f0f0;
+    }
+
+    #buttonfont{
+      font-family: "Century Gothic";
     }
 
     .logout {
-      position: absolute;
-      left: 550px; 
-      top: -770px;
-      width: 70px;
-      height: 35px;
-      padding: 0px;
-      background: #ff5a00;
-      color: #fff;
-      text-align: center;
+      position: relative;
+      top: -20px;
+      right: -20px;
     }
 
     .box {
       font-family: "Century Gothic";
-      width: 90%;
+      width: 550px;
       box-shadow: 0px 0px 12px #d9d9d9;
       border: 0px solid #DFDFDF;
       padding: 20px;
@@ -129,15 +190,17 @@
       margin-top: 80px;
       margin-left: auto;
       margin-right: auto;
-      -webkit-transition: all linear 0.5s;
+    }
+
+    .box table tr {
+      padding-top: 10px;
     }
 
     .box table tr td {
-      font-size: 50pt;
+      font-size: 14pt;
       color: #333;
       border-top: 1px solid #f5f5f5;
       padding: 5px;
-      text-align:center;
     }
 
     .box table {
@@ -151,25 +214,26 @@
       padding-left: 15px;
     }
 
+
     h2 {
       margin-bottom: 10px;
-      font-size: 50pt;
+      font-size: 18pt;
     }
 
     h3 {
       margin-bottom: 3px;
-      font-size: 30pt;
+      font-size: 9pt;
       font-weight: 1000;
       text-transform: uppercase;
       color: #ccc;
     }
 
     .temp {
-      position: absolute; 
-      left: 702px; 
-      top: -158px;
-      width: 200px;
-      height: 80px;
+      position: relative;
+      top: 15px;
+      left: 490px;
+      height: 35px;
+      width: 80px;
       padding: 0px;
       background: #ff5a00;
       color: #fff;
@@ -177,15 +241,43 @@
     }
 
     .temp p {
-      margin-top: 5%;
+      margin-top: -35px;
+      padding-top: 5px;
+      font-family: "Century Gothic";
       text-shadow: 1px 1px 1px #b74d13;
-      font-size: 40pt;
+      font-size: 12pt;
     }
 
+    #customersList { 
+      list-style-type: none;
+      cursor: pointer;
+      margin: 0; 
+      padding: 0; 
+    }
 
-      @keyframes fadein{from{opacity:0;}to{opacity:1;}}
-      @-moz-keyframes fadein{from{opacity:0;}to{opacity:1;}}
-      @-webkit-keyframes fadein{from{opacity:0;}to{opacity:1;}}
-      @-o-keyframes fadein{from{opacity:0;}to{opacity:1;}}
-    
+    #customersList .customersListHighlight {
+      background: white;
+      border: 1px black;
+    }
+
+    #settingstable {
+      text-align: right;
+    }
+
+    #homeview {
+      display: block;
+      width: 65px;
+      padding: 10px;
+      color: #999;
+      text-decoration: none;
+      background: #f0f0f0;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 10pt;
+      border-width: 0;
+      float: right;
+    }
+    #homeview.an {
+      background: #C9FFF0;
+    }
     

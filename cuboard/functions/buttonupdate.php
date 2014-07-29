@@ -23,6 +23,17 @@ require("../include/mysqlcon.php");
 				mysqli_query($con,"UPDATE settings SET status=0 WHERE sid=1");
 			}
     	}
+    	elseif ($code == "Master-Passwort") 
+    	{
+    		if ($value == 0)
+			{										
+				mysqli_query($con,"UPDATE settings SET status=1 WHERE sid=2");
+			}
+			else
+			{
+				mysqli_query($con,"UPDATE settings SET status=0 WHERE sid=2");
+			}
+    	}
     	else
     	{
     		$result=mysqli_query($con, "SELECT room FROM room WHERE rid=$rid");

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 23. Jul 2014 um 11:59
+-- Erstellungszeit: 29. Jul 2014 um 17:02
 -- Server Version: 5.6.16
 -- PHP-Version: 5.5.11
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `control` (
   `pos` int(4) unsigned DEFAULT NULL,
   `rid` int(4) NOT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -47,7 +47,14 @@ CREATE TABLE IF NOT EXISTS `login` (
   `username` varchar(50) NOT NULL,
   `password` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Daten für Tabelle `login`
+--
+
+INSERT INTO `login` (`id`, `username`, `password`) VALUES
+(1, 'Jero', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
 
@@ -60,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `room` (
   `room` varchar(50) NOT NULL,
   `pos` int(4) unsigned NOT NULL,
   PRIMARY KEY (`rid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -74,14 +81,15 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `code` varchar(60) NOT NULL,
   `status` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`sid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Daten für Tabelle `settings`
 --
 
 INSERT INTO `settings` (`sid`, `funktion`, `code`, `status`) VALUES
-(1, 'Push-Benachrichtigungen', '', 0);
+(1, 'Push-Benachrichtigungen', 'v1pAxW812rygFz1LGah8McTV5Pb5IlZ5qNujAmPyZyvC0', 0),
+(2, 'Master-Passwort', '63ea517d3105699c80f862f6e26169db', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -170,31 +170,43 @@ include("../include/nosession.php");
   while ($row = mysqli_fetch_object($settingsquery))
   {
         $funktion=$row->funktion;
-        $apikey=$row->code;
+        $key=$row->code;
         $status=$row->status;
-        if ($apikey == "") 
+        if ($key == "") 
         {
-          $apikey="API-Key einf&uuml;gen";
+          $key="Schl&uuml;ssel einf&uuml;gen";
         }
         else
         {
-          $apikey="API-Key vorhanden";
+          $key="Schl&uuml;ssel vorhanden";
         }
         echo "<table>";
         echo "<tr>";
         echo "<td style=width:350px;>$funktion</td>";
-        if ($funktion="Push-Benachrichtigungen")
+        if ($funktion=="Push-Benachrichtigungen")
         {
-          echo "<td><input id=buttonfont type=text style=width:180px; name='apikey' placeholder='$apikey'></td>";
+          echo "<td><input id=buttonfont type=text style=width:180px; name='apikey' placeholder='$key'></td>";
+          if ($status == 1)
+          { 
+            echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->sid','$status','$funktion','0') >an</Button></td>";
+          }
+          else
+          {
+            echo "<td><Button id=buttonfont onclick=updatebutton('$row->sid','$status','$funktion','0') >aus</Button></td>";
+          }        
         }
-        if ($status == 1)
-        { 
-          echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->sid','$status','$funktion','0') >an</Button></td>";
-        }
-        else
+        if ($funktion=="Master-Passwort")
         {
-          echo "<td><Button id=buttonfont onclick=updatebutton('$row->sid','$status','$funktion','0') >aus</Button></td>";
-        }        
+          echo "<td><input id=buttonfont type=text style=width:180px; name='masterkey' placeholder='$key'></td>";
+          if ($status == 1)
+          { 
+            echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->sid','$status','$funktion','0') >an</Button></td>";
+          }
+          else
+          {
+            echo "<td><Button id=buttonfont onclick=updatebutton('$row->sid','$status','$funktion','0') >aus</Button></td>";
+          }        
+        }
         echo "</tr>";    
         echo "</table>";
   }
@@ -416,9 +428,12 @@ include("../include/nosession.php");
 
               elseif (isset($_POST['uptsettings'])) 
               {
-                $apikey=$_POST["apikey"];                 
+                $apikey=$_POST["apikey"];     
+                $masterkey=$_POST["masterkey"];            
                  
                 $eintrag = "UPDATE settings SET code='$apikey' WHERE sid=1"; 
+                $eintragen = mysqli_query($con, $eintrag);
+                $eintrag = "UPDATE settings SET code='$masterkey' WHERE sid=2"; 
                 $eintragen = mysqli_query($con, $eintrag);
 
                 if($eintragen == true) 

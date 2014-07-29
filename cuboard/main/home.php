@@ -60,10 +60,13 @@ include("../include/nosession.php");
  				echo "</table>";
  			}           
         }
+        $onetime=1;
         while ($row = mysqli_fetch_object($settingsquery))
-        {
-        	echo "<h2>Controlsettings</h2>";
-			echo "<h3>Aktuelle Einstellungen</h3>";
+        {	
+        	if ($onetime==1) {
+        		echo "<h2>Controlsettings</h2>";
+				echo "<h3>Aktuelle Einstellungen</h3>";
+        	}
             echo "<table>";
             echo "<tr>";
 			echo "<td>$row->funktion</td>";
@@ -76,7 +79,8 @@ include("../include/nosession.php");
  				echo "<td><div id=homeview>aus</div></td>";
  			}
  			echo "</tr>";    
- 			echo "</table>"; 			           
+ 			echo "</table>"; 	
+ 			$onetime=$onetime+1;		           
         }
         mysqli_free_result($result); 					
 		echo "</div>";
