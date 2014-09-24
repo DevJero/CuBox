@@ -26,9 +26,6 @@
             echo "Passwort wiederholen:<br>";
             echo "<input type=password size=24 maxlength=50 name='password2'><br><br>";
 
-            echo "Master-Passwort<br>";
-            echo "<input type=password size=24 maxlength=50 name='master'><br><br>";
-
             echo "<input id=buttonfont style=float:left type=submit value='Login' name='Login'>";
             echo "<input id=buttonfont style=padding-left:6px; type=submit value='Abschicken'><br>";
             echo "</form>";
@@ -45,9 +42,8 @@
             $username = $_POST["username"]; 
             $password = $_POST["password"]; 
             $password2 = $_POST["password2"]; 
-            $master = $_POST["master"]; 
 
-            if($password != $password2 OR $username == "" OR $password == "" OR $master =="") 
+            if($password != $password2 OR $username == "" OR $password == "") 
                 { 
                     echo "<nav>";
                     echo "<ul>";
@@ -59,21 +55,6 @@
                     echo "</div>";
                     exit;
                 }
-
-            $masterquery = "SELECT * FROM settings where sid=2";
-            $masterresult = mysqli_query($con,$masterquery);
-            $master = md5($master);
-
-            while ($row = mysqli_fetch_object($masterresult))
-            {
-                if ($row->status==1) {
-                    if ($master==$row->code) {
-                        $masterok=1;
-                    }
-                }
-            }
-
-            if ($masterok==1) {
 
             $password = md5($password); 
 
@@ -122,19 +103,7 @@
                     echo "<div class=box align=center>";
                     echo "Benutzername bereits vorhanden. <br><a href=\"signup.php\">Zur&uuml;ck</a>";  
                     echo "</div>";                     
-                }
-            }
-            else
-            {
-                echo "<nav>";
-                echo "<ul>";
-                echo "<li><a>CUBOARD</a></li>";
-                echo "</ul>";
-                echo "</nav>";
-                echo "<div class=box align=center>";
-                echo "Master-Passwort ist nicht korrekt. <br><a href=\"signup.php\">Zur&uuml;ck</a>";  
-                echo "</div>";      
-            } 
+                } 
         }
  
 

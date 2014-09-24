@@ -37,8 +37,8 @@
     color: #444;
     display: block;
     font-family: "Century Gothic";
-    font-size: 20pt;
-    padding: 10px;
+    font-size: 24pt;
+    padding: 12px;
     text-align: center;
     text-decoration: none;
     -webkit-transition: all .25s ease;
@@ -69,7 +69,7 @@
 
     nav li:hover ul {
     opacity: 1;
-    top: 50px;
+    top: 60px;
     visibility: visible;
     }
 
@@ -279,5 +279,20 @@
     }
     #homeview.an {
       background: #C9FFF0;
+    }
+
+    #uitablerow1 {
+      float: left;
+      margin-left: 35px;
+    }
+
+    #uitablerow2 {
+      float: left;
+      margin-left: 35px;
+    }
+
+    #uitablerow3 {
+      float: left;
+      margin-left: 35px;
     }
     
