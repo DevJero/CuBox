@@ -125,6 +125,11 @@ $(document).ready(function()
 </head>
 
 
+<?php
+include("../include/nosession.php");
+?>
+
+
 <body id="control">
 
 
@@ -142,7 +147,7 @@ $(document).ready(function()
 	
 
 	<?php
-  require("../include/nosession.php");
+
   require("../include/mysqlcon.php");
 
 
@@ -158,9 +163,9 @@ $(document).ready(function()
 
   echo "<div class=box>";
   echo "<form action='$_SERVER[PHP_SELF]' method=POST >";
-  echo "<div class=loginout><input id=buttonfont type=submit name='logout' value='Logout' ></div>"; 
+  echo "<div class=logout><input id=buttonfont type=submit name='logout' value='Logout' ></div>"; 
   echo "<h2>Settings</h2>";
-  echo "<h3>Allgemeine Einstellungen</h3>";
+  echo "<h3>Einstellungen</h3>";
 
   while ($row = mysqli_fetch_object($settingsquery))
   {
@@ -183,11 +188,11 @@ $(document).ready(function()
           echo "<td><input id=buttonfont type=text style=width:180px; name='apikey' placeholder='$key'></td>";
           if ($status == 1)
           { 
-            echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->sid','$status','settings','0') >an</Button></td>";
+            echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->sid','$status','$funktion','0') >an</Button></td>";
           }
           else
           {
-            echo "<td><Button id=buttonfont onclick=updatebutton('$row->sid','$status','settings','0') >aus</Button></td>";
+            echo "<td><Button id=buttonfont onclick=updatebutton('$row->sid','$status','$funktion','0') >aus</Button></td>";
           }        
         }
         if ($funktion=="Master-Passwort")
@@ -195,11 +200,11 @@ $(document).ready(function()
           echo "<td><input id=buttonfont type=text style=width:180px; name='masterkey' placeholder='$key'></td>";
           if ($status == 1)
           { 
-            echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->sid','$status','settings','0') >an</Button></td>";
+            echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->sid','$status','$funktion','0') >an</Button></td>";
           }
           else
           {
-            echo "<td><Button id=buttonfont onclick=updatebutton('$row->sid','$status','settings','0') >aus</Button></td>";
+            echo "<td><Button id=buttonfont onclick=updatebutton('$row->sid','$status','$funktion','0') >aus</Button></td>";
           }        
         }
         echo "</tr>";    
@@ -320,40 +325,6 @@ $(document).ready(function()
               echo "</form>";
               echo "</div>";
 
-
-            //---Module-----------------------------------------
-
-            $modulequery = mysqli_query($con,"SELECT * FROM module");
-
-            echo "<div class=box>";
-            echo "<form action='$_SERVER[PHP_SELF]' method=POST >";
-            echo "<h2>Module</h2>";
-            echo "<h3>Verwaltung</h3>";
-
-            while ($row = mysqli_fetch_object($modulequery))
-            {
-              $modul=$row->name;
-              $status=$row->status;
-
-                echo "<table>";
-                echo "<tr>";
-                echo "<td style=width:350px;>$modul</td>";
-
-                if ($status == 1)
-                { 
-                    echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->mid','$status','module','0') >an</Button></td>";
-                }
-                else
-                {
-                    echo "<td><Button id=buttonfont onclick=updatebutton('$row->mid','$status','module','0') >aus</Button></td>";
-                }        
-        
-            echo "</tr>";    
-            echo "</table>";
-            }
-            echo "</form>";
-            echo "</div>";
-
               }
               else
               {
@@ -372,26 +343,26 @@ $(document).ready(function()
                 if ($bezeichnung == "") 
                 {
                   echo "<div class=box align=center>";
-                  echo "Es wurde keine <b>Bezeichnung</b> angegeben. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                  echo "Es wurde keine <b>Bezeichnung</b> angegeben. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }                
                 elseif ($codelen != 6) 
                 {
                   echo "<div class=box align=center>";
-                  echo "Fehler in der L&auml;nge des <b>Codes</b>. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                  echo "Fehler in der L&auml;nge des <b>Codes</b>. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }
                 elseif (mysqli_num_rows($codevorhanden) == 1) 
                 {
                   echo "<div class=box align=center>";
-                  echo "Der eingegebene Code <b>$code</b> ist bereits vorhanden. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                  echo "Der eingegebene Code <b>$code</b> ist bereits vorhanden. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }
 
                 elseif ($room == "") 
                 {
                   echo "<div class=box align=center>";
-                  echo "Bitte f&uuml;gen Sie zuerst einen <b>Raum</b> hinzu. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                  echo "Bitte f&uuml;gen Sie zuerst einen <b>Raum</b> hinzu. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }
                 else
@@ -403,13 +374,13 @@ $(document).ready(function()
                 if($eintragen == true) 
                     { 
                         echo "<div class=box align=center>";
-                        echo "<b>$bezeichnung</b> mit dem Code <b>$code</b> wurde eingetragen. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                        echo "<b>$bezeichnung</b> mit dem Code <b>$code</b> wurde eingetragen. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                         echo "</div>";                                                  
                     } 
                 else 
                     { 
                         echo "<div class=box align=center>";
-                        echo "Fehler beim Eintragen von <b>$bezeichnung</b>. <br><a href=\"settings.php\">Zur&uuml;ck</a>";  
+                        echo "Fehler beim Eintragen von <b>$bezeichnung</b>. <br><a href=\"csettings.php\">Zur&uuml;ck</a>";  
                         echo "</div>";                                                
                     } 
                 }
@@ -424,13 +395,13 @@ $(document).ready(function()
                 if ($newroom == "") 
                 {
                   echo "<div class=box align=center>";
-                  echo "Es wurde kein <b>Raum</b> angegeben. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                  echo "Es wurde kein <b>Raum</b> angegeben. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }
                 elseif (mysqli_num_rows($roomvorhanden) == 1) 
                 {
                   echo "<div class=box align=center>";
-                  echo "Der Raum <b>$newroom</b> ist bereits vorhanden. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                  echo "Der Raum <b>$newroom</b> ist bereits vorhanden. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                   echo "</div>";
                 }
                 else
@@ -441,13 +412,13 @@ $(document).ready(function()
                 if($eintragen == true) 
                     { 
                         echo "<div class=box align=center>";
-                        echo "<b>$newroom</b> wurde eingetragen. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                        echo "<b>$newroom</b> wurde eingetragen. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                         echo "</div>";                                                  
                     }
                 else 
                     { 
                         echo "<div class=box align=center>";
-                        echo "Fehler beim Eintragen von <b>$newroom</b>. <br><a href=\"settings.php\">Zur&uuml;ck</a>";  
+                        echo "Fehler beim Eintragen von <b>$newroom</b>. <br><a href=\"csettings.php\">Zur&uuml;ck</a>";  
                         echo "</div>";                                                
                     } 
                 }
@@ -468,13 +439,13 @@ $(document).ready(function()
                 if($eintragen == true) 
                     { 
                         echo "<div class=box align=center>";
-                        echo "Einstellungen wurden aktualisiert. <br><a href=\"settings.php\">Zur&uuml;ck</a>"; 
+                        echo "Einstellungen wurden aktualisiert. <br><a href=\"csettings.php\">Zur&uuml;ck</a>"; 
                         echo "</div>";                                                  
                     }
                 else 
                     { 
                         echo "<div class=box align=center>";
-                        echo "Fehler bei Aktualisierung der Einstellungen. <br><a href=\"settings.php\">Zur&uuml;ck</a>";  
+                        echo "Fehler bei Aktualisierung der Einstellungen. <br><a href=\"csettings.php\">Zur&uuml;ck</a>";  
                         echo "</div>";                                                
                     } 
               }
@@ -506,11 +477,11 @@ $(document).ready(function()
                 $delidja = $_POST['delidja'];
                 mysqli_query($con,"DELETE FROM control WHERE cid=$delidja");
                 //mysqli_query($con,"ALTER TABLE control AUTO_INCREMENT =1");             
-                header("LOCATION: settings.php");
+                header("LOCATION: csettings.php");
               }
               else
               {
-                header("LOCATION: settings.php");
+                header("LOCATION: csettings.php");
               }
             }
             

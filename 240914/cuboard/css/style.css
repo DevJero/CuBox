@@ -41,16 +41,15 @@
     padding: 12px;
     text-align: center;
     text-decoration: none;
-    
-    } 
-
-    nav li:hover a {
-    background: #ccc;
     -webkit-transition: all .25s ease;
        -moz-transition: all .25s ease;
         -ms-transition: all .25s ease;
          -o-transition: all .25s ease;
             transition: all .25s ease;
+    } 
+
+    nav li:hover a {
+    background: #ccc;
     }
 
     nav li ul {
@@ -61,18 +60,17 @@
     top: 35px;
     visibility: hidden;
     z-index: 1;
-    
+    -webkit-transition: all .25s ease;
+       -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+         -o-transition: all .25s ease;
+            transition: all .25s ease;
     }
 
     nav li:hover ul {
     opacity: 1;
     top: 60px;
     visibility: visible;
-    -webkit-transition: all .25s ease;
-       -moz-transition: all .25s ease;
-        -ms-transition: all .25s ease;
-         -o-transition: all .25s ease;
-            transition: all .25s ease;
     }
 
     nav li ul li {
@@ -176,7 +174,7 @@
       font-family: "Century Gothic";
     }
 
-    .loginout {
+    .logout {
       position: relative;
       top: -20px;
       right: -20px;
@@ -212,42 +210,6 @@
     }
 
     .box table tr td:first-child {
-      width: 150px;
-      padding-left: 15px;
-    }
-
-    .homebox {
-      font-family: "Century Gothic";
-      width: 550px;
-      height: 300px;
-      box-shadow: 0px 0px 12px #d9d9d9;
-      border: 0px solid #DFDFDF;
-      padding: 20px;
-      margin-bottom: 35px;
-      margin-top: 80px;
-      margin-left: auto;
-      margin-right: auto;
-      overflow: auto;
-    }
-
-    .homebox table tr {
-      padding-top: 10px;
-    }
-
-    .homebox table tr td {
-      font-size: 14pt;
-      color: #333;
-      border-top: 1px solid #f5f5f5;
-      padding: 5px;
-    }
-
-    .homebox table {
-      width: 100%;
-      border-spacing: 0;
-      margin-bottom: 10px;
-    }
-
-    .homebox table tr td:first-child {
       width: 150px;
       padding-left: 15px;
     }
@@ -319,18 +281,18 @@
       background: #C9FFF0;
     }
 
-    #uitablerow {
-      display: inline-block;
-      max-height: 500px;    
-      margin-right: 20px;  
+    #uitablerow1 {
+      float: left;
+      margin-left: 35px;
     }
 
-    #uicenter {
-      max-width: 1230px;
-      margin-left: auto;
-      margin-right: auto;
+    #uitablerow2 {
+      float: left;
+      margin-left: 35px;
     }
 
-    ::-webkit-scrollbar { 
-    display: none; 
-}
+    #uitablerow3 {
+      float: left;
+      margin-left: 35px;
+    }
+    

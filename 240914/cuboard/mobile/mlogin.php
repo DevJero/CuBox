@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../css/style.css" rel="stylesheet">
+<link href="../css/mstyle.css" rel="stylesheet">
 </head>
 
-<?php
-require("../include/checkmlogin.php");
-?>
+
 <body>
     <?php error_reporting(E_ALL ^  E_NOTICE);
 
@@ -17,20 +15,16 @@ require("../include/checkmlogin.php");
             echo "<li><a>CUBOARD</a></li>";
             echo "</ul>";
             echo "</nav>";
-            echo "<div class=box align=center>";            
+            echo "<div class=box align=center>";
+            echo "<h2>Login</h2>";
             echo "<form action='$_SERVER[PHP_SELF]' method='post'>";
-            echo "<div class=loginout><input id=buttonfont style=padding-left:6px; type=submit value='Abschicken' ></div>"; 
-            echo "<h2 style=margin-left:85px;>Login</h2><br>";
-            echo "Username:<br>";
-            echo "<input type=text size=24 maxlength=50 name='username'><br><br>";
+            echo "<h3>Username:</h3><br>";
+            echo "<input type=text maxlength=50 name='username'><br><br>";
 
-            echo "Passwort:<br>";
-            echo "<input type=password size=24 maxlength=50 name='password'><br><br>";
+            echo "<h3>Passwort:</h3><br>";
+            echo "<input type=password maxlength=50 name='password'><br><br><br><br>";
 
-            echo "<br>";
-            echo "<p><a href='signup.php'>Benutzer verwalten</a></p><br>";
-
-            
+            echo "<input type=submit value='Abschicken'><br>";
             echo "</form>";
             echo "</div>";
         }
@@ -56,14 +50,14 @@ require("../include/checkmlogin.php");
                 echo "</ul>";
                 echo "</nav>";
                 echo "<div class=box align=center>";
-                echo "Eingabefehler. <br>Bitte Benutzername und Passwort korrekt ausf&uuml;llen. <br><a href=\"login.php\">Zur&uuml;ck</a>";
+                echo "Eingabefehler. <br>Bitte Benutzername und Passwort korrekt ausf&uuml;llen. <br><a href=\"mlogin.php\">Zur&uuml;ck</a>";
                 echo "</div>";
             }
 
 			elseif ($row->password == $password) 
     		{ 
     			$_SESSION["username"] = $username; 
-    			header("LOCATION: home.php");
+    			header("LOCATION: mcontrol.php");                
     		} 
 
 			else 
@@ -74,7 +68,7 @@ require("../include/checkmlogin.php");
                 echo "</ul>";
                 echo "</nav>";
                 echo "<div class=box align=center>";
-                echo "Benutzername und/oder Passwort falsch. <br><a href=\"login.php\">Zur&uuml;ck</a>"; 
+                echo "Benutzername und/oder Passwort falsch. <br><a href=\"mlogin.php\">Zur&uuml;ck</a>"; 
                 echo "</div>";      		        
     		} 
     	}

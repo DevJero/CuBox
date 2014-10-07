@@ -35,11 +35,6 @@ function updatebutton(id,value,code,rid){
     </script>    
 </head>
 
-<?php
-
-include("../include/nosession.php");
-?>
-
 
 <body id="home">
 
@@ -56,111 +51,23 @@ include("../include/nosession.php");
 
 
 
-
 <?php
-
-	echo "</table>";
-
-	echo "<table id=uitablerow1>";
-	echo "<tr>";
-
-	echo "<td>";
-		echo "<div class=box>";
-		echo "<h2>Wetter</h2>";
-		echo "<h3>Aktuell</h3>";
-
-		echo "</div>";
-
-	echo "</td>";
-	
-	echo "</tr>";
-	echo "</table>";
-
-
+	require("../include/nosession.php");
 	require("../include/mysqlcon.php");
-	
-	$resultroom = mysqli_query($con,"SELECT * FROM room ORDER BY rid");
-	$settingsquery = mysqli_query($con,"SELECT * FROM settings");
 
-	echo "<table id=uitablerow2>";
-	echo "<tr>";
-	echo "<td>";
-	
-	echo "<form action='$_SERVER[PHP_SELF]' method=POST >";
-	while ($row = mysqli_fetch_object($resultroom))
+	echo "<div id=uicenter>";
+
+	$resultmodule = mysqli_query($con,"SELECT * FROM module ORDER BY pos");
+
+	while ($row = mysqli_fetch_object($resultmodule))
     {
-    	$rid=$row->rid;
-		echo "<div class=box>";
-		echo "<h2>$row->room</h2>";
-		echo "<h3>Ger&auml;testatus</h3>";
-		$result = mysqli_query($con,"SELECT * FROM control LEFT JOIN room ON control.rid=room.rid ORDER BY control.pos");
-		while ($row = mysqli_fetch_object($result))
-        {
-            if ($row->rid==$rid)
-            {
-            	echo "<table>";
-            	echo "<tr>";
-				echo "<td>$row->name</td>";
-				if ($row->status ==1)
-				{	
-					echo "<td><Button id=buttonfont class=an onclick=updatebutton('$row->cid','$row->status','$row->code','$rid') >an</Button></td>";
-				}
- 				else
- 				{
- 					echo "<td><Button id=buttonfont onclick=updatebutton('$row->cid','$row->status','$row->code','$rid') >aus</Button></td>";
- 				}
- 				echo "</tr>";    
- 				echo "</table>";
- 			}           
-        }
-        $onetime=1;
-        while ($row = mysqli_fetch_object($settingsquery))
-        {	
-        	if ($onetime==1) {
-        		echo "<h2>Controlsettings</h2>";
-				echo "<h3>Aktuelle Einstellungen</h3>";
-        	}
-            echo "<table>";
-            echo "<tr>";
-			echo "<td style=width:350px;>$row->funktion</td>";
-			if ($row->status ==1)
-			{	
-				echo "<td><div id=homeview class=an>an</div></td>";
+   		if ($row->status ==1)
+			{
+				include("../module/$row->name.php");
 			}
- 			else
- 			{
- 				echo "<td><div id=homeview>aus</div></td>";
- 			}
- 			echo "</tr>";    
- 			echo "</table>"; 	
- 			$onetime=$onetime+1;		           
-        }
-        mysqli_free_result($result); 					
-		echo "</div>";
-	}
+    }	
 
-	echo "</form>";
-
-	echo "</td>";
-	echo "</tr>";
-	
-
-	echo "<table id=uitablerow3>";
-	echo "<tr>";
-
-	echo "<td>";
-		echo "<div class=box>";
-		echo "<h2>News</h2>";
-		echo "<h3>Aktuell</h3>";
-
-		echo"Hier kommt ein RSS Feed hin";
-
-		echo "</div>";
-
-	echo "</td>";
-	
-	echo "</tr>";
-	echo "</table>";
+    echo "</div>";
 
 
 	

@@ -12,26 +12,26 @@ require("../include/mysqlcon.php");
     	$rid = $_REQUEST['rid'];
 
     	
-    	if ($code == "settings") 
+    	if ($code == "Push-Benachrichtigungen") 
     	{
     		if ($value == 0)
 			{										
-				mysqli_query($con,"UPDATE settings SET status=1 WHERE sid=$id");
+				mysqli_query($con,"UPDATE settings SET status=1 WHERE sid=1");
 			}
 			else
 			{
-				mysqli_query($con,"UPDATE settings SET status=0 WHERE sid=$id");
+				mysqli_query($con,"UPDATE settings SET status=0 WHERE sid=1");
 			}
     	}
-    	elseif ($code == "module") 
+    	elseif ($code == "Master-Passwort") 
     	{
     		if ($value == 0)
 			{										
-				mysqli_query($con,"UPDATE module SET status=1 WHERE mid=$id");
+				mysqli_query($con,"UPDATE settings SET status=1 WHERE sid=2");
 			}
 			else
 			{
-				mysqli_query($con,"UPDATE module SET status=0 WHERE mid=$id");
+				mysqli_query($con,"UPDATE settings SET status=0 WHERE sid=2");
 			}
     	}
     	else

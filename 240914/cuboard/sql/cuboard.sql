@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 07. Okt 2014 um 15:48
+-- Erstellungszeit: 29. Jul 2014 um 17:02
 -- Server Version: 5.6.16
 -- PHP-Version: 5.5.11
 
@@ -34,16 +34,7 @@ CREATE TABLE IF NOT EXISTS `control` (
   `pos` int(4) unsigned DEFAULT NULL,
   `rid` int(4) NOT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Daten für Tabelle `control`
---
-
-INSERT INTO `control` (`cid`, `name`, `status`, `code`, `pos`, `rid`) VALUES
-(2, 'Standlicht', 0, 100021, 1, 2),
-(3, 'Deckenlicht', 0, 100022, 3, 2),
-(4, 'Deckenlicht', 0, 100011, 2, 3);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -68,29 +59,6 @@ INSERT INTO `login` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `module`
---
-
-CREATE TABLE IF NOT EXISTS `module` (
-  `mid` int(4) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  `pos` int(4) unsigned DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`mid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Daten für Tabelle `module`
---
-
-INSERT INTO `module` (`mid`, `name`, `pos`, `status`) VALUES
-(1, 'control', NULL, 1),
-(2, 'news', NULL, 1),
-(3, 'wetter', NULL, 1);
-
--- --------------------------------------------------------
-
---
 -- Tabellenstruktur für Tabelle `room`
 --
 
@@ -99,15 +67,7 @@ CREATE TABLE IF NOT EXISTS `room` (
   `room` varchar(50) NOT NULL,
   `pos` int(4) unsigned NOT NULL,
   PRIMARY KEY (`rid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Daten für Tabelle `room`
---
-
-INSERT INTO `room` (`rid`, `room`, `pos`) VALUES
-(2, 'Schlafzimmer', 0),
-(3, 'Wohnzimmer', 0);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -129,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 
 INSERT INTO `settings` (`sid`, `funktion`, `code`, `status`) VALUES
 (1, 'Push-Benachrichtigungen', 'v1pAxW812rygFz1LGah8McTV5Pb5IlZ5qNujAmPyZyvC0', 0),
-(2, 'Master-Passwort', '', 1);
+(2, 'Master-Passwort', '63ea517d3105699c80f862f6e26169db', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
